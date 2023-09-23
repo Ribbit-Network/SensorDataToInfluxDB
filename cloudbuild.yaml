@@ -1,0 +1,13 @@
+steps:
+  - name: "python:3.9"
+    entrypoint: "pip"
+    args: ["install", "-r", "requirements.txt"]
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      - "functions"
+      - "deploy"
+      - "frog-golioth-2-influx"  
+      - "--runtime=python310"  
+      - "--trigger-http"  
+      - "--allow-unauthenticated"  
