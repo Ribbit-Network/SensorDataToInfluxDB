@@ -63,5 +63,5 @@ def send_data_2_influx(request):
     else:
         print('no gps_fix: not submitting to influxDB')
 
-    #Must send an HTTP Return Code
+    #Must send HTTP Return Code
     return 'OK'
