@@ -43,6 +43,10 @@ def send_data_2_influx(request):
         allocated_mem = ribbit_msg['memory']['allocated']
         free_mem = ribbit_msg['memory']['free']
 
+        battery_voltage = 0.0
+        if 'battery' in ribbit_msg:
+            battery_voltage = ribbit_msg['battery']['voltage']
+
         point = (
             Point("ghg_reading")
             .tag("host", device_id)
@@ -57,6 +61,7 @@ def send_data_2_influx(request):
             .field("baro_temperature", dps310_temp)
             .field("mem_allocated", allocated_mem)
             .field("mem_free", free_mem)
+            .field("bat_volts", battery_voltage
         )
         write_api.write(BUCKET, ORG, point)
 
