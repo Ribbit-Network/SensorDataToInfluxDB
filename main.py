@@ -61,7 +61,7 @@ def send_data_2_influx(request):
             .field("baro_temperature", dps310_temp)
             .field("mem_allocated", allocated_mem)
             .field("mem_free", free_mem)
-            .field("bat_volts", battery_voltage
+            .field("bat_volts", battery_voltage)
         )
         write_api.write(BUCKET, ORG, point)
 
