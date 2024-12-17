@@ -19,7 +19,7 @@ def send_data_2_influx(request):
 
     print(golioth_msg)
     
-    ribbit_msg = golioth_msg['data']['ribbitnetwork.datapoint']
+    ribbit_msg = golioth_msg['ribbitnetwork.datapoint']
     gps_fix = ribbit_msg['gps']['has_fix']
 
     # Check if the gps fix is valid, only send a datapoint if so
