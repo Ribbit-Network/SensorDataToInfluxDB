@@ -16,6 +16,9 @@ def send_data_2_influx(request):
     request_args = request.args
 
     golioth_msg = request_json
+
+    print(golioth_msg)
+    
     ribbit_msg = golioth_msg['data']['ribbitnetwork.datapoint']
     gps_fix = ribbit_msg['gps']['has_fix']
 
